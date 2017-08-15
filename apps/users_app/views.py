@@ -1,31 +1,21 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.shortcuts import render, HttpResponse, redirect
 
-# /register - display 'placeholder for users to create a new user record'
-def register(request):
-    print 'hello users:register'
-    object = 'placeholder for users to create a new user record'
-    context = { 'message': object }
-    return render(request, "users_app/register.html", context)
+def index(request):
+    return HttpResponse("placeholder to later display all the list of users")
 
-# /login - display 'placeholder for users to login'
-def login(request):
-    print 'hello users:login'
-    object = 'placeholder for users to login'
-    context = { 'message': object }
-    return render(request, "users_app/login.html", context)
+def new(request):
+    return HttpResponse("placeholder to display a new form to create a new user")
 
-# /users/new - have the same method that handles /register also handle the url
-# request of /users/new
-def newUser(request):
-    print 'hello users:newUser'
-    return register(request)
+def create(request):
+    return redirect('/users')
 
-# /users - display 'placeholder to later display all the list of users'
-def users(request):
-    print 'hello users:users'
-    object = 'placeholder to later display all the list of users'
-    context = { 'message': object }
-    return render(request, "users_app/users.html", context)
+def show(request, user_id):
+    return HttpResponse("placeholder to display user {}".format(user_id))
+
+def edit(request, user_id):
+    return HttpResponse("placeholder to edit user {}".format(user_id))
+
+def delete(request, user_id):
+    return redirect('/users')
